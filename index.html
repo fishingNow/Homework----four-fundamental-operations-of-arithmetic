@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>four-mathmatic</title>
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+	 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+</head>
+<body>
+	<!--Header -->
+	<div class="container  ">
+		<div class="row">
+			<header>
+				<!-- logo -->
+				<div class="col-md-3">
+					<div class="logo"></div>
+				</div>
+			</header>	
+		</div>
+	</div>
+	
+
+	
+	<div class="container">
+		<!-- 出题部分 -->
+		<section id="make-problem">
+			<form onsubmit="return false" class="form-inline">
+				<div class="row">
+					<!-- 题目数量 -->
+					<div class="col-md-5 col-md-offset-4 form-group">
+						<label for="problem-amount" class="">题目数量</label>
+						<input type="text" id="problem-amount" class="form-control" placeholder="1~100" autocomplete="off">	
+					</div>
+				</div>
+					
+				<div class="row">
+					<div class="col-md-6 col-md-offset-4 ">
+						<button class="submit-button" id="submit-button">生成题目
+					<div>
+				</div>
+			</form>
+		</section>
+		
+		<!-- 做题部分 -->
+		<section id="solve-problem">
+			<form class="form-horizontal" onsubmit="return false">
+				<div class="form-group">
+					<label for="problem-amount" class="col-sm-6 "style="font-size:20px;">做题</label>
+				</div>
+
+				<div id="title1">
+				</div>
+				
+				<div class="form-group">
+					<div class="col-sm-offset-5 col-sm-8">
+					<button type="submit" class="submit-button" id="solve">提交</button>
+					</div>
+				</div>
+			</form>			
+		</section>
+
+
+	</div>
+	
+
+	<!-- 尾部 -->
+	<footer>
+		
+	</footer>
+
+	<script src="js/index.js"></script>	
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+</body>
+</html>
