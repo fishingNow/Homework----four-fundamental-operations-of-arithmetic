@@ -77,30 +77,6 @@ function judgePositive(arr,i){
 		console.log(equation);
 	}
 	return 1;
-
-	// var j=i;
-	// for(var k=1;k<=3;k++){
-	// 	array[k]=arr1.slice(j+k-1,j+k)[0];
-	// }
-	// j=j+2;
-	
-	// //每次计算之后将计算之后的结果值替换到下一次开始计算起始的地方j+2处
-	// arr1[j]=count(array,2);
-
-	// //判断每次计算后是否是负数或小数，如果是则返回-1	
-	// if(count(array,2)<0){
-	// 	return -1;
-	// }
-
-	// //判断是否已经计算完了，如果计算完了还没有出现负数或小数就返回1
-
-	// if(j==(arr1.length-1)){
-
-	// 	return 1;
-	// }
-
-	// //如果符合要求，则继续递归检测从i+2开始，arr1的i+2被替换为了上一次计算之后的值
-	// else return judgePositive(arr1,j);
 }
 
 //判断是否能除尽(无余数),如果有一次不能除尽则返回-1
@@ -157,24 +133,6 @@ function count( arr, j) {
 	return ans;
 }
 
-//生成算式并计算出答案，若某一步不符合要求则重新生成一个新的算式，每一个算式放入二维数组中arr[1][i],每个算式的答案就是arr[2][i]
-
-// var	numberArray=numberArr(5)//数组存储随机生成的计算数字
-// var opeArray=operatorArr(4);
-
-// // 需要添加3个运算符
-// for (let i = 1; i <= 4; i++) {
-// 	numberArray[2*i]=opeArray[i];
-
-// }
-// var ans=count(numberArray,5);
-// var jup=judgePositive(numberArray,1);
-// var jud=judgeDivision(numberArray);
-// console.log("numberArray=");
-// console.log(numberArray);
-// console.log("ans="+ans);
-// console.log("judgePositive="+jup);
-// console.log("judgeDivision="+jud);
 arr1=["",2,"+",3,"*",7];
 var r=0;
 for(var i=0;i<arr1.length/2-1;i++){
@@ -184,16 +142,11 @@ for(var i=0;i<arr1.length/2-1;i++){
 		equation=equation+arr1[j];
 	}
 	r=r+2;
-	console.log(equation);
 }
 
-
- 
-
-
-
-
 submitButton.onclick=function(){
+	//删除提交的按钮，防止后面又添加其进入数组answerArray中
+	problemAmoun.parentNode.removeChild(problemAmoun);
 	//判断出题数目是否是1-100，如果不是则变红
 	if (problemAmoun.value<1 || problemAmoun.value>100) {
 		problemAmoun.className="form-control warm";
@@ -244,7 +197,6 @@ submitButton.onclick=function(){
 			numberArray.forEach(function (item,index) {
 				label.innerHTML = label.innerHTML + item; 
 			});
-			console.log(numberArray);
 			
 			console.log("计算出的答案为"+eval(label.innerHTML));
 		
@@ -255,23 +207,19 @@ window.onload=function(){
 	solve.onclick=function () {
 	var answerArray=document.getElementsByClassName('form-control');//存放用户输入的答案的数组，之后用于与正确答案相比较
 	var titleArray=document.getElementsByClassName('control-label');//存放题目
-	console.log("titlearray=");
-	
-	console.log(titleArray[0].innerHTML);
 	
 	for(var i=0;i<answerArray.length;i++){
 		 
-		var b=titleArray[0].innerHTML;
-		console.log("b="+b);
+		var b=titleArray[i].innerHTML;
 		
 		if(eval(b)!=answerArray[i].value){
 			answerArray[i].className="form-control warm";
-		}
+		}	
 		else{
 			answerArray[i].className="form-control";
+			
 		}
 	}
-	console.log("!!");
 	
 }
 }
